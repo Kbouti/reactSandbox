@@ -4,13 +4,14 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 
 function App() {
-
  const [counter, setCounter] = useState(0);
 
+
+useEffect(() => {
  setInterval(() => {
   setCounter(count => count + 1)
   }, 1000);
-
+})
 
 
 
