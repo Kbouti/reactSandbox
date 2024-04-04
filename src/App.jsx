@@ -29,3 +29,6 @@ return () => {
 }
 
 export default App;
+
+
+// Completed useEffect reading and exercises. 4/2/24
