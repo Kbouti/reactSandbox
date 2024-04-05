@@ -1,8 +1,25 @@
-# React + Vite
+React Sandbox
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Mess around and practice react techniques here. 
 
-Currently, two official plugins are available:
+Instructions on how to initiate react project with git: 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+1. CD into repos/Projects (or whereEver you want your project to exist)
+
+2.  npm create vite@latest projectName -- --template react
+    (enter to proceed)
+
+3. cd projectName
+    npm install
+    npm run dev
+
+4. Create new repository in github
+
+5. git init
+    git add .
+    git commit -m "First commit"
+    git branch -M main
+    git remote add origin    **SSH**
+    git push -u origin main
+
