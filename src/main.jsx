@@ -4,7 +4,7 @@ import App from './App.jsx'
 import './index.css'
 import { useState, useEffect } from "react";
 
-
+import PackingList from './practice.jsx';
 const kevin = {
   name:"Kevin",
   isShithead: false,
@@ -34,6 +34,7 @@ function Shithead({person}) {
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Shithead person =  {kevin}/>
+    <PackingList/>
     <App />
   </React.StrictMode>,
 )
