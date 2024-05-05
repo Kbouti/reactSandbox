@@ -1,22 +1,45 @@
 import { useState, useEffect } from "react";
+import React from "react";
 
-function Item({ name, isPacked }) {
-    if (isPacked) {
-        return null
-        // return  <li className="item">{name}✔</li>;
-    }
-  return <li className="item">{name}</li>;
-}
+const FunctionalInput = ({ name }) => {
+  const [todos, setTodos] = useState([
+    "Just some ma'fuckin toDo's. ",
+    "Even more shit to do",
+  ]);
+  const [inputVal, setInputVal] = useState("");
 
-export default function PackingList() {
+  const handleInputChange = (e) => {
+    setInputVal(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setTodos((todo) => [...todo, inputVal]);
+    setInputVal("");
+  };
+
   return (
     <section>
-      <h1>"Sally Ride's Packing List"</h1>
+      <h3>{name}</h3>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="task-entry">Enter a task:</label>
+        <input
+          type="text"
+          name="task-entry"
+          value={inputVal}
+          onChange={handleInputChange}
+        />
+        <button type="submit">Submit</button>
+      </form>
+      <h4>All the tasks!</h4>
       <ul>
-        <Item isPacked={true} name="space suit" />
-        <Item isPacked={true} name="Helmet with gold leaf" />
-        <Item isPacked={true} name="Photo of Tam" />
+        {todos.map((todo) => (
+          <li key={todo}>{todo}</li>
+        ))}
       </ul>
     </section>
   );
-}
+};
+
+
+export default FunctionalInput

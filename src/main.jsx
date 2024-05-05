@@ -2,9 +2,10 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
-import { useState, useEffect } from "react";
+import { useState, useEffect } from "react"
 
-import PackingList from './practice.jsx';
+import FunctionalInput from "./practice.jsx"
+
 const kevin = {
   name:"Kevin",
   isShithead: false,
@@ -31,11 +32,14 @@ function Shithead({person}) {
 
 
 
+
+
+
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Shithead person =  {kevin}/>
-    <PackingList/>
-    <App />
+    {/* <Shithead person =  {kevin}/> */}
+    <FunctionalInput/>
   </React.StrictMode>,
 )
 
