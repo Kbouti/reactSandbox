@@ -4,6 +4,8 @@ import App from './App.jsx'
 import './index.css'
 import { useState, useEffect } from "react"
 
+import ClassInput from './class.jsx'
+
 import FunctionalInput from "./practice.jsx"
 
 const kevin = {
@@ -39,7 +41,8 @@ function Shithead({person}) {
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     {/* <Shithead person =  {kevin}/> */}
-    <FunctionalInput/>
+    {/* <FunctionalInput/> */}
+    <ClassInput/>
   </React.StrictMode>,
 )
 
