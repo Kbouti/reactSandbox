@@ -31,6 +31,12 @@ class ClassInput extends Component {
   handleDelete(e) {
     // delete this todo
     console.log(`delete triggered`);
+
+    let thisTodoValue = e.target.parentElement.children[0].innerHTML
+
+    console.log(`todo to delete: ${thisTodoValue}`);
+
+
   }
 
   render() {
@@ -55,6 +61,7 @@ class ClassInput extends Component {
             <li key={todo}>
               <p>{todo}</p>
               <button
+                key={todo}
                 type="delete"
                 className="deleteButton"
                 onClick={this.handleDelete}
