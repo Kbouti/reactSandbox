@@ -32,11 +32,8 @@ class ClassInput extends Component {
   handleDelete(e) {
     // delete this todo
     console.log(`delete triggered`);
-
     let thisTodoValue = e.target.parentElement.children[0].innerHTML;
-
     console.log(`todo to delete: ${thisTodoValue}`);
-
     let newTodos = [];
     console.log(`this.state.todos: ${this.state.todos}`);
     for (let i = 0; i < this.state.todos.length; i++) {
@@ -46,14 +43,8 @@ class ClassInput extends Component {
     }
     this.setState((state) => ({
       todos: newTodos,
-      inputVal: this.inputVal,
+      inputVal: this.state.inputVal,
     }));
-
-
-// This works now, I'm deleting the intended todo. Buuuuut I'm getting an angry warning message in the console:
-// Warning: A component is changing a controlled input to be uncontrolled. This is likely caused by the value changing from a defined to undefined, which should not happen. Decide between using a controlled or uncontrolled input element for the lifetime of the component. More info: https://reactjs.org/link/controlled-components
-
-
   }
 
   render() {
