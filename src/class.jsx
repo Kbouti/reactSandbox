@@ -28,6 +28,11 @@ class ClassInput extends Component {
     }));
   }
 
+  handleDelete(e) {
+    // delete this todo
+    console.log(`delete triggered`);
+  }
+
   render() {
     return (
       <section>
@@ -46,9 +51,18 @@ class ClassInput extends Component {
         <h4>All the tasks!</h4>
         {/* The list of all the To-Do's, displayed */}
         <ul>
-            {this.state.todos.map((todo) => (
-                <li key={todo}>{todo}</li>
-            ))}
+          {this.state.todos.map((todo) => (
+            <li key={todo}>
+              <p>{todo}</p>
+              <button
+                type="delete"
+                className="deleteButton"
+                onClick={this.handleDelete}
+              >
+                Delete
+              </button>
+            </li>
+          ))}
         </ul>
       </section>
     );
