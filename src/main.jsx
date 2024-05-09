@@ -5,6 +5,8 @@ import './index.css'
 import { useState, useEffect } from "react"
 
 import ClassInput from './class.jsx'
+import Count from './count.jsx'
+
 
 import FunctionalInput from "./practice.jsx"
 
@@ -42,6 +44,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     {/* <Shithead person =  {kevin}/> */}
     {/* <FunctionalInput/> */}
+    <Count/>
     <ClassInput/>
   </React.StrictMode>,
 )

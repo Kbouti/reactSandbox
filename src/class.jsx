@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import Count from "./count";
+
 class ClassInput extends Component {
   constructor(props) {
     super(props);
@@ -52,6 +54,7 @@ class ClassInput extends Component {
       <section>
         <h3>{this.props.name}</h3>
         {/* The input field to enter To-Do's */}
+        <Count todos = {this.todos}/>
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="task-entry">Enter a task: </label>
           <input
@@ -66,7 +69,7 @@ class ClassInput extends Component {
         {/* The list of all the To-Do's, displayed */}
         <ul>
           {this.state.todos.map((todo) => (
-            <li key={todo}>
+            <li className="todo" key={todo}>
               <p>{todo}</p>
               <button
                 key={todo}
