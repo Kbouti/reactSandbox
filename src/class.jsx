@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 
-import Count from "./count";
 
 class ClassInput extends Component {
   constructor(props) {
@@ -54,7 +53,9 @@ class ClassInput extends Component {
       <section>
         <h3>{this.props.name}</h3>
         {/* The input field to enter To-Do's */}
-        <Count todos = {this.todos}/>
+        
+        <p>Number of tasks: {this.state.todos.length}</p>
+        
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="task-entry">Enter a task: </label>
           <input
