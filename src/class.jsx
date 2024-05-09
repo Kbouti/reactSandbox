@@ -13,6 +13,7 @@ class ClassInput extends Component {
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleEditClick = this.handleEditClick.bind(this);
   }
 
   handleInputChange(e) {
@@ -29,6 +30,12 @@ class ClassInput extends Component {
       inputVal: "",
     }));
   }
+
+
+handleEditClick(e) {
+    console.log(`clicked edit button for ${e.target.innerHTML}`);
+    // Duhhh... e.target is the edit button. We need to target the parent component
+}
 
   handleDelete(e) {
     // delete this todo
@@ -80,6 +87,10 @@ class ClassInput extends Component {
               >
                 Delete
               </button>
+
+<button className="editButton" onClick={this.handleEditClick}>Edit</button>
+
+
             </li>
           ))}
         </ul>
