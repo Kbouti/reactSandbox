@@ -26,7 +26,9 @@ class ClassInput extends Component {
   handleSubmit(e) {
     e.preventDefault();
     this.setState((state) => ({
-      todos: state.todos.concat(state.inputVal),
+      todos: state.todos.concat({todo: state.inputVal,
+        editing: false
+      }),
       inputVal: "",
     }));
   }
@@ -34,10 +36,10 @@ class ClassInput extends Component {
 
 handleEditClick(e) {
     const targetTodo = e.target.parentElement.firstChild.innerHTML;
-
     console.log(`clicked edit button for ${targetTodo}`);
 
     // Nice! Now we've obtained the todo we wanna edit
+    // Next step is to set this todo's editing to true
 
 
 }
@@ -50,7 +52,7 @@ handleEditClick(e) {
     let newTodos = [];
     console.log(`this.state.todos: ${this.state.todos}`);
     for (let i = 0; i < this.state.todos.length; i++) {
-      if (this.state.todos[i] !== thisTodoValue) {
+      if (this.state.todos[i].todo !== thisTodoValue) {
         newTodos.push(this.state.todos[i]);
       }
     }
@@ -83,7 +85,7 @@ handleEditClick(e) {
         <ul>
           {this.state.todos.map((todo) => (
             <li className="todo" key={todo}>
-              <p>{todo}</p>
+              <p>{todo.todo}</p>
               <button
                 key={todo}
                 type="delete"
