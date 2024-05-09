@@ -37,9 +37,25 @@ class ClassInput extends Component {
 handleEditClick(e) {
     const targetTodo = e.target.parentElement.firstChild.innerHTML;
     console.log(`clicked edit button for ${targetTodo}`);
+   const newTodos = [];
+   for (let i = 0;i < this.state.todos.length;i++) {
+    if (this.state.todos[i].todo == targetTodo){
+      newTodos.push({todo: this.state.todos[i].todo,
+        editing: true
+      })
+    } else {
+      newTodos.push(this.state.todos[i]);
+    }
+   }
+   this.setState((state) => ({
+    state: newTodos,
+    inputVal: ""
+   }))
 
-    // Nice! Now we've obtained the todo we wanna edit
-    // Next step is to set this todo's editing to true
+
+
+// Ok At this point I believe we've set editable to true for the target todo. 
+// The next step is we need to conditionally render an inputbox and change editButton innerHTML to "resubmit" when todo is editable
 
 
 }
@@ -84,7 +100,7 @@ handleEditClick(e) {
         {/* The list of all the To-Do's, displayed */}
         <ul>
           {this.state.todos.map((todo) => (
-            <li className="todo" key={todo}>
+            <li className="todo" key={todo.todo}>
               <p>{todo.todo}</p>
               <button
                 key={todo}
