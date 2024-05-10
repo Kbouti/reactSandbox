@@ -79,6 +79,9 @@ handleEditClick(e) {
   }
 
   render() {
+
+
+    
     return (
       <section>
         <h3>{this.props.name}</h3>
@@ -100,6 +103,11 @@ handleEditClick(e) {
         {/* The list of all the To-Do's, displayed */}
         <ul>
           {this.state.todos.map((todo) => (
+
+// if (!todo.editable){
+  // console.log(todo)
+  // This is where I want to add the condition but it isn't letting me....
+
             <li className="todo" key={todo.todo}>
               <p>{todo.todo}</p>
               <button
