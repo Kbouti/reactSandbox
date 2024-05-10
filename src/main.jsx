@@ -4,7 +4,7 @@ import App from './App.jsx'
 import './index.css'
 import { useState, useEffect } from "react"
 
-import ClassInput from './class.jsx'
+import ClassInput from './input.jsx'
 
 
 import FunctionalInput from "./practice.jsx"

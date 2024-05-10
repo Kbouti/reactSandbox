@@ -81,7 +81,7 @@ handleEditClick(e) {
   render() {
 
 
-    
+
     return (
       <section>
         <h3>{this.props.name}</h3>
@@ -104,7 +104,7 @@ handleEditClick(e) {
         <ul>
           {this.state.todos.map((todo) => (
 
-// if (!todo.editable){
+  // if (!todo.editable){
   // console.log(todo)
   // This is where I want to add the condition but it isn't letting me....
 
