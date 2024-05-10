@@ -42,7 +42,7 @@ handleEditClick(e) {
    for (let i = 0;i < this.state.todos.length;i++) {
     if (this.state.todos[i].todo == targetTodo){
       newTodos.push({todo: this.state.todos[i].todo,
-        editing: true
+        editable: true
       })
     } else {
       newTodos.push(this.state.todos[i]);
@@ -112,7 +112,7 @@ handleEditClick(e) {
             <li className="todo" key={todo.todo}>
               <p>{todo.todo}</p>
               <button
-                key={todo}
+                key={todo.todo}
                 type="delete"
                 className="deleteButton"
                 onClick={this.handleDelete}
@@ -124,7 +124,7 @@ handleEditClick(e) {
 
 
 
-<Output/>
+<Output todo = {todo.todo} editable = {todo.editable}/>
 {/* Cool! We've imported out output component. Maybe we put all the logic for the todo li there? */}
 
 
