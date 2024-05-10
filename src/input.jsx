@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+import Output from "./output";
 
 class ClassInput extends Component {
   constructor(props) {
@@ -120,6 +121,15 @@ handleEditClick(e) {
               </button>
 
 <button className="editButton" onClick={this.handleEditClick}>Edit</button>
+
+
+
+<Output/>
+{/* Cool! We've imported out output component. Maybe we put all the logic for the todo li there? */}
+
+
+
+
 
 
             </li>
