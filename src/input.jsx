@@ -28,7 +28,7 @@ class ClassInput extends Component {
     e.preventDefault();
     this.setState((state) => ({
       todos: state.todos.concat({todo: state.inputVal,
-        editing: false
+        editable: "false"
       }),
       inputVal: "",
     }));
