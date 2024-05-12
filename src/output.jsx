@@ -7,36 +7,44 @@ class Output extends Component {
     this.state = {
       todoList: props.todoList,
     };
-    this.logTodo = this.logTodo.bind(this);
+    this.delete = this.delete.bind(this);
+    this.edit = this.edit.bind(this);
+    this.log = this.log.bind(this);
   }
 
-  logTodo() {
-    console.log(`logTodo function called`);
-    console.log(`this.editable: ${this.props.editable}`);
+  log(e) {
+    console.log(`log function called`);
+    console.log(e.target.parentElement);
   }
 
-  //  ****************************************************************************************************
-  // Ok I think there's a problem with state
-  // This component will render a single todo component. Thus, it only needs to know it's todo value and whether it is selected or not.
+  delete(e) {
+    console.log(`delete function called`);
+    this.log(e);
+    let targetTodo = e.target.parentElement.children[0].innerHTML;
+    console.log(`targetTodo: ${targetTodo}`);
+    let newArray = [];
+    for (let i = 0; i < this.props.todoList.length; i++) {
+      if (this.props.todoList[i].todo !== targetTodo) {
+        newArray.push(this.props.todoList[i]);
+      }
+    }
+    //  ****************************************************************************************************
+    // Ok now we need to reset state. Or props? Idk. Gotta do something.
+    //  ****************************************************************************************************
+  }
 
-  // We establish the component and then click edit, but nothing changes in the output component
-
-  //  I think we gotta raise state?
-  // We need to pass the whole todos list to the output component. Not just a single one. The individual output components need access to the whole listso that they can delete themselves from the list.
-
-  //  ****************************************************************************************************
+  edit(e) {
+    console.log(`edit called `);
+    this.log(e);
+  }
 
   render() {
-
-    console.log(`render called from output`)
+    console.log(`render called from output`);
     return (
       <ul>
         {this.props.todoList.map((todo) => (
-
-
-// Here is where the ternary statement would go... 
-// Render an input element if editable, otherwise a regular li
-
+          // Here is where the ternary statement would go...
+          // Render an input element if editable, otherwise a regular li
 
           <li className="todo" key={todo.todo}>
             <p>{todo.todo}</p>
@@ -44,13 +52,17 @@ class Output extends Component {
               key={todo.todo + "delete"}
               type="delete"
               className="deleteButton"
-              // Need onClick function from input file
+              onClick={this.delete}
             >
               Delete
             </button>
-            <button className = "editButton"
-            // Need onClick function from input file
-            >Edit</button>
+            <button
+              className="editButton"
+              onClick={this.edit}
+              // Need onClick function from input file
+            >
+              Edit
+            </button>
           </li>
         ))}
       </ul>
