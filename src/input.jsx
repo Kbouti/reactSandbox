@@ -26,6 +26,7 @@ class ClassInput extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    console.log("submit handle triggered")
     this.setState((state) => ({
       todos: state.todos.concat({todo: state.inputVal,
         editable: "false"
@@ -102,39 +103,7 @@ handleEditClick(e) {
         </form>
         <h4>All the tasks!</h4>
         {/* The list of all the To-Do's, displayed */}
-        <ul>
-          {this.state.todos.map((todo) => (
-
-  // if (!todo.editable){
-  // console.log(todo)
-  // This is where I want to add the condition but it isn't letting me....
-
-            <li className="todo" key={todo.todo}>
-              <p>{todo.todo}</p>
-              <button
-                key={todo.todo}
-                type="delete"
-                className="deleteButton"
-                onClick={this.handleDelete}
-              >
-                Delete
-              </button>
-
-<button className="editButton" onClick={this.handleEditClick}>Edit</button>
-
-
-
-<Output todo = {todo.todo} editable = {todo.editable}/>
-{/* Cool! We've imported out output component. Maybe we put all the logic for the todo li there? */}
-
-
-
-
-
-
-            </li>
-          ))}
-        </ul>
+<Output todoList = {this.state.todos}/>
       </section>
     );
   }

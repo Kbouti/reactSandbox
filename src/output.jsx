@@ -5,13 +5,8 @@ class Output extends Component {
     super(props);
 
     this.state = {
-      todo: props.todo,
-      editable: props.editable,
+      todoList: props.todoList,
     };
-
-    // this.todo = props.todo;
-    // this.editable = props.editable;
-
     this.logTodo = this.logTodo.bind(this);
   }
 
@@ -32,19 +27,33 @@ class Output extends Component {
   //  ****************************************************************************************************
 
   render() {
-    return (
-      <>
-        {this.props.editable == true ? (
-          <input>input!</input>
-        ) : (
-          <div>{this.props.todo}</div>
-        )}
-        {/* I think this ternary statement is working, we're just not altering state like we want to */}
 
-        <button onClick={this.logTodo}>output</button>
-        {/* <div>this.props.todo: {this.props.todo}</div> */}
-        <div>this.props.editable: {this.props.editable}</div>
-      </>
+    console.log(`render called from output`)
+    return (
+      <ul>
+        {this.props.todoList.map((todo) => (
+
+
+// Here is where the ternary statement would go... 
+// Render an input element if editable, otherwise a regular li
+
+
+          <li className="todo" key={todo.todo}>
+            <p>{todo.todo}</p>
+            <button
+              key={todo.todo + "delete"}
+              type="delete"
+              className="deleteButton"
+              // Need onClick function from input file
+            >
+              Delete
+            </button>
+            <button className = "editButton"
+            // Need onClick function from input file
+            >Edit</button>
+          </li>
+        ))}
+      </ul>
     );
   }
 }
