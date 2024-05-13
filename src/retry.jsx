@@ -12,6 +12,7 @@ export default class InputRetry extends Component {
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
   }
 
   handleInputChange(e) {
@@ -55,7 +56,32 @@ export default class InputRetry extends Component {
 
   handleEdit(e) {
     // Swap target task to editable
+
+    const targetTodo = e.target.parentElement.firstChild.innerHTML;
+    console.log(`edit called on ${targetTodo}`);
+    const newArray = [];
+    for (let i = 0; i < this.state.todos.length; i++) {
+      if (this.state.todos[i].todo == targetTodo) {
+        let updatedEntry = {
+          todo: targetTodo,
+          editable: "true",
+        };
+        newArray.push(updatedEntry);
+      } else {
+        newArray.push(this.state.todos[i]);
+      }
+    }
+    this.setState((state) => ({
+      todos: newArray,
+      inputVal: this.state.inputVal,
+    }));
   }
+
+
+
+// NIIIICE! We're doing good. 
+// Next steps are to write the onchange handler for the input field and make a resubmit button (also maybe a cancel button?)
+
 
   render() {
     return (
@@ -91,7 +117,7 @@ export default class InputRetry extends Component {
               </li>
             ) : (
               <li key={entry.todo}>
-                <input>{entry.todo}</input>
+                <input value={entry.todo}></input>
               </li>
             )
           )}
