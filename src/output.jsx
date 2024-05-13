@@ -28,8 +28,26 @@ class Output extends Component {
         newArray.push(this.props.todoList[i]);
       }
     }
+console.log(`loop over, newArray: ${newArray}`)
+// I believe the loop is working, we're getting an array of objects that is the correct length
+// Buuuut we're not correctly setting state
+
+
+
+this.setState({
+    todoList: newArray,
+})
+
+    // this.setState((state) => ({
+    //     todoList: newArray,
+    // }))
+
     //  ****************************************************************************************************
     // Ok now we need to reset state. Or props? Idk. Gotta do something.
+
+
+    // Also... Render output is running every time the input is changed, that should't happen. It should only rerender when a new todo is added. 
+    // Do we need to useEffect here??????
     //  ****************************************************************************************************
   }
 
@@ -40,6 +58,7 @@ class Output extends Component {
 
   render() {
     console.log(`render called from output`);
+    console.log(`this.todoList: ${this.todoList}`)
     return (
       <ul>
         {this.props.todoList.map((todo) => (
