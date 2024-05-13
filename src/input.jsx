@@ -91,7 +91,7 @@ handleEditClick(e) {
         
         <p>Number of tasks: {this.state.todos.length}</p>
         
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} autoComplete="off">
           <label htmlFor="task-entry">Enter a task: </label>
           <input
             type="text"

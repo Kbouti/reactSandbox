@@ -57,8 +57,8 @@ this.setState({
   }
 
   render() {
-    console.log(`render called from output`);
-    console.log(`this.todoList: ${this.todoList}`)
+    // console.log(`render called from output`);
+    // console.log(`this.todoList: ${this.todoList}`)
     return (
       <ul>
         {this.props.todoList.map((todo) => (
