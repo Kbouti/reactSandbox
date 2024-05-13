@@ -4,6 +4,10 @@ class Output extends Component {
   constructor(props) {
     super(props);
 
+
+this.funNum = "sixtynine";
+this.todoInput = props.todoList;
+
     this.state = {
       todoList: props.todoList,
     };
@@ -19,6 +23,12 @@ class Output extends Component {
 
   delete(e) {
     console.log(`delete function called`);
+    console.log(`this.funNum: ${this.funNum}`);
+    console.log(`this.todoInput: ${this.todoInput}`);
+
+
+
+
     this.log(e);
     let targetTodo = e.target.parentElement.children[0].innerHTML;
     console.log(`targetTodo: ${targetTodo}`);
@@ -32,7 +42,7 @@ console.log(`loop over, newArray: ${newArray}`)
 // I believe the loop is working, we're getting an array of objects that is the correct length
 // Buuuut we're not correctly setting state
 
-
+// We need to set state for the input class as well I think?
 
 this.setState({
     todoList: newArray,
@@ -57,7 +67,7 @@ this.setState({
   }
 
   render() {
-    // console.log(`render called from output`);
+    console.log(`render called from output`);
     // console.log(`this.todoList: ${this.todoList}`)
     return (
       <ul>

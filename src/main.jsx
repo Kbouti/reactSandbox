@@ -5,9 +5,9 @@ import './index.css'
 import { useState, useEffect } from "react"
 
 import ClassInput from './input.jsx'
-
-
 import FunctionalInput from "./practice.jsx"
+
+import InputRetry from './retry.jsx'
 
 const kevin = {
   name:"Kevin",
@@ -43,7 +43,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     {/* <Shithead person =  {kevin}/> */}
     {/* <FunctionalInput/> */}
-    <ClassInput/>
+    {/* <ClassInput/> */}
+    <InputRetry/>
   </React.StrictMode>,
 )
 

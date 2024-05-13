@@ -103,7 +103,7 @@ handleEditClick(e) {
         </form>
         <h4>All the tasks!</h4>
         {/* The list of all the To-Do's, displayed */}
-<Output todoList = {this.state.todos}/>
+<Output todoList = {this.state.todos} todoInput = {this.state.todos}/>
       </section>
     );
   }
