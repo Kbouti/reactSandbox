@@ -23,8 +23,6 @@ export default class InputRetry extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-
-    // Ok, here's where we gotta deviate from the script. Instead of just adding the string title of the todo, each one needs to be an object so we can store the editable boolean we'll need for the final exercise.
     const newEntry = {
       todo: this.state.inputVal,
       editable: "false",
@@ -34,7 +32,6 @@ export default class InputRetry extends Component {
     for (let i = 0; i < this.state.todos.length; i++)
       [newArray.push(this.state.todos[i])];
     newArray.push(newEntry);
-
     this.setState({
       todos: newArray,
       inputVal: "",
@@ -44,18 +41,20 @@ export default class InputRetry extends Component {
   handleDelete(e) {
     const targetTodo = e.target.parentElement.firstChild.innerHTML;
     console.log(`delete function called for targetTodo: ${targetTodo}`);
-
     const newArray = [];
     for (let i = 0; i < this.state.todos.length; i++) {
       if (this.state.todos[i].todo !== targetTodo) {
         newArray.push(this.state.todos[i]);
       }
     }
-
     this.setState((state) => ({
       todos: newArray,
       inputVal: this.state.inputVal,
     }));
+  }
+
+  handleEdit(e) {
+    // Swap target task to editable
   }
 
   render() {
@@ -74,19 +73,28 @@ export default class InputRetry extends Component {
         <h4>Task count: {this.state.todos.length}</h4>
         <ul>
           {/* Here we'll need to map through todos and conditionally render */}
+          {this.state.todos.map((entry) =>
+            entry.editable == "false" ? (
+              <li key={entry.todo}>
+                <p className="todo">{entry.todo}</p>
+                <button
+                  onClick={this.handleDelete}
+                  className="deleteButton"
+                  type="delete"
+                >
+                  Delete
+                </button>
 
-          {this.state.todos.map((entry) => (
-            <li key={entry.todo}>
-              <p className="todo">{entry.todo}</p>
-              <button
-                onClick={this.handleDelete}
-                className="deleteButton"
-                type="delete"
-              >
-                Delete
-              </button>
-            </li>
-          ))}
+                <button onClick={this.handleEdit} className="editButton">
+                  Edit
+                </button>
+              </li>
+            ) : (
+              <li key={entry.todo}>
+                <input>{entry.todo}</input>
+              </li>
+            )
+          )}
         </ul>
       </section>
     );
