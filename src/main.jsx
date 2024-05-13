@@ -44,7 +44,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     {/* <Shithead person =  {kevin}/> */}
     {/* <FunctionalInput/> */}
     {/* <ClassInput/> */}
-    <InputRetry/>
+    <InputRetry name="Kevin"/>
   </React.StrictMode>,
 )
 
