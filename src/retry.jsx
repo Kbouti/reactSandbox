@@ -88,39 +88,43 @@ export default class InputRetry extends Component {
     e.preventDefault();
     console.log(`handleEditSubmit function triggered`);
 
-    // Ok, here we have to edit the text content of the todo, then set editable for that todo to false
-    // We might want to handle the event that they submit a blank field... Probably not important for this exercise
-
-
-// *******************************************************************************************************************
-// Somehow we're getting an error  below. It's returning undefined for some reason.
-// Should I be useing JSON.parse and Json.stringify to create a deep copy? Is the issue that we're assigning by reference and not by value? 
-// *******************************************************************************************************************
-
-
     const targetTodo = e.target.firstChild.placeholder;
-    const currentTodos = this.state.todos;
-
-    let newArray = [];
-    console.log(this.state.todos);
-    for (let i = 0; i, currentTodos.length; i++) {
-      console.log(currentTodos[i]);
-      let thisTodo = currentTodos[i];
-      if (thisTodo.todo == targetTodo) {
+    const newArray = [];
+    for (let i = 0; i < this.state.todos.length; i++) {
+      if (this.state.todos[i].todo == targetTodo) {
         newArray.push({ todo: e.target.firstChild.value, editable: "false" });
       } else {
-        newArray.push(this.state.todos[i]);
+        newArray.push({ todo: this.state.todos[i].todo, editable: "false" });
       }
     }
+
     this.setState((state) => ({
       todos: newArray,
       inputVal: this.state.inputVal,
     }));
+
   }
 
   handleEditCancel(e) {
     e.preventDefault();
     console.log(`handleEditCancel function triggered`);
+
+
+
+    const targetTodo = e.target.firstChild.placeholder;
+    const newArray = [];
+    for (let i = 0; i < this.state.todos.length; i++) {
+        newArray.push({ todo: this.state.todos[i].todo, editable: "false" });
+      }
+    
+
+    this.setState((state) => ({
+      todos: newArray,
+      inputVal: this.state.inputVal,
+    }));
+
+
+
   }
 
   render() {
