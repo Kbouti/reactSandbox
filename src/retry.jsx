@@ -8,12 +8,10 @@ const exampleTodos = [
 export default class InputRetry extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      todos: exampleTodos,
+      todos: [],
       inputVal: "",
     };
-
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
@@ -87,7 +85,6 @@ export default class InputRetry extends Component {
   handleEditSubmit(e) {
     e.preventDefault();
     console.log(`handleEditSubmit function triggered`);
-
     const targetTodo = e.target.firstChild.placeholder;
     const newArray = [];
     for (let i = 0; i < this.state.todos.length; i++) {
@@ -102,29 +99,21 @@ export default class InputRetry extends Component {
       todos: newArray,
       inputVal: this.state.inputVal,
     }));
-
   }
 
   handleEditCancel(e) {
     e.preventDefault();
     console.log(`handleEditCancel function triggered`);
 
-
-
     const targetTodo = e.target.firstChild.placeholder;
     const newArray = [];
     for (let i = 0; i < this.state.todos.length; i++) {
-        newArray.push({ todo: this.state.todos[i].todo, editable: "false" });
-      }
-    
-
+      newArray.push({ todo: this.state.todos[i].todo, editable: "false" });
+    }
     this.setState((state) => ({
       todos: newArray,
       inputVal: this.state.inputVal,
     }));
-
-
-
   }
 
   render() {
