@@ -12,7 +12,9 @@ export default class InputRetry extends Component {
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
-    this.handleEdit = this.handleEdit.bind(this);
+    this.handleEditClick = this.handleEditClick.bind(this);
+    this.handleEditCancel = this.handleEditCancel.bind(this);
+    this.handleEditSubmit = this.handleEditSubmit.bind(this);
   }
 
   handleInputChange(e) {
@@ -54,7 +56,7 @@ export default class InputRetry extends Component {
     }));
   }
 
-  handleEdit(e) {
+  handleEditClick(e) {
     // Swap target task to editable
 
     const targetTodo = e.target.parentElement.firstChild.innerHTML;
@@ -77,11 +79,22 @@ export default class InputRetry extends Component {
     }));
   }
 
+  handleEditChange(e) {
+    console.log(`handleEditChange function triggered`)
+  }
 
+  handleEditSubmit(e) {
+    e.preventDefault();
+    console.log(`handleEditSubmit function triggered`)
+  }
 
-// NIIIICE! We're doing good. 
-// Next steps are to write the onchange handler for the input field and make a resubmit button (also maybe a cancel button?)
+handleEditCancel(e){
+    e.preventDefault();
+    console.log(`handleEditCancel function triggered`)
+}
 
+  // NIIIICE! We're doing good.
+  // Next steps are to write the onchange handler for the input field and make a resubmit button (also maybe a cancel button?)
 
   render() {
     return (
@@ -111,13 +124,17 @@ export default class InputRetry extends Component {
                   Delete
                 </button>
 
-                <button onClick={this.handleEdit} className="editButton">
+                <button onClick={this.handleEditClick} className="editButton">
                   Edit
                 </button>
               </li>
             ) : (
               <li key={entry.todo}>
-                <input value={entry.todo}></input>
+                <form>
+                  <input placeholder={entry.todo} onChange={this.handleEditChange} onSubmit={this.handleEditSubmit}></input>
+                  <button type="submit">Submit</button>
+                  <button type="cancel" onClick={this.handleEditCancel}>Cancel</button>
+                </form>
               </li>
             )
           )}
