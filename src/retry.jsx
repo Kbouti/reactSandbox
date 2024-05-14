@@ -92,17 +92,21 @@ export default class InputRetry extends Component {
     // We might want to handle the event that they submit a blank field... Probably not important for this exercise
 
 
+// *******************************************************************************************************************
+// Somehow we're getting an error  below. It's returning undefined for some reason.
+// Should I be useing JSON.parse and Json.stringify to create a deep copy? Is the issue that we're assigning by reference and not by value? 
+// *******************************************************************************************************************
 
-// Somehow we're getting an error from lines 103/104 below. It's returning undefined for some reason. 
 
     const targetTodo = e.target.firstChild.placeholder;
+    const currentTodos = this.state.todos;
 
     let newArray = [];
     console.log(this.state.todos);
-    for (let i = 0; i, this.state.todos.length; i++) {
-      console.log(this.state.todos[i]);
-      let thisTodo = this.state.todos[i].todo;
-      if (thisTodo == targetTodo) {
+    for (let i = 0; i, currentTodos.length; i++) {
+      console.log(currentTodos[i]);
+      let thisTodo = currentTodos[i];
+      if (thisTodo.todo == targetTodo) {
         newArray.push({ todo: e.target.firstChild.value, editable: "false" });
       } else {
         newArray.push(this.state.todos[i]);
