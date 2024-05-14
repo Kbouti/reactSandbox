@@ -1,10 +1,9 @@
 import { React, Component } from "react";
 
-
-
-const exampleTodos = [{todo: "Replace air filters", editable: "false"}, {todo: "retake Slash phoros", editable: "false"}];
-
-
+const exampleTodos = [
+  { todo: "Replace air filters", editable: "false" },
+  { todo: "retake Slash phoros", editable: "false" },
+];
 
 export default class InputRetry extends Component {
   constructor(props) {
@@ -88,6 +87,31 @@ export default class InputRetry extends Component {
   handleEditSubmit(e) {
     e.preventDefault();
     console.log(`handleEditSubmit function triggered`);
+
+    // Ok, here we have to edit the text content of the todo, then set editable for that todo to false
+    // We might want to handle the event that they submit a blank field... Probably not important for this exercise
+
+
+
+// Somehow we're getting an error from lines 103/104 below. It's returning undefined for some reason. 
+
+    const targetTodo = e.target.firstChild.placeholder;
+
+    let newArray = [];
+    console.log(this.state.todos);
+    for (let i = 0; i, this.state.todos.length; i++) {
+      console.log(this.state.todos[i]);
+      let thisTodo = this.state.todos[i].todo;
+      if (thisTodo == targetTodo) {
+        newArray.push({ todo: e.target.firstChild.value, editable: "false" });
+      } else {
+        newArray.push(this.state.todos[i]);
+      }
+    }
+    this.setState((state) => ({
+      todos: newArray,
+      inputVal: this.state.inputVal,
+    }));
   }
 
   handleEditCancel(e) {
