@@ -79,22 +79,16 @@ export default class InputRetry extends Component {
     }));
   }
 
-  handleEditChange(e) {
-    console.log(`handleEditChange function triggered`)
-  }
 
   handleEditSubmit(e) {
     e.preventDefault();
-    console.log(`handleEditSubmit function triggered`)
+    console.log(`handleEditSubmit function triggered`);
   }
 
-handleEditCancel(e){
+  handleEditCancel(e) {
     e.preventDefault();
-    console.log(`handleEditCancel function triggered`)
-}
-
-  // NIIIICE! We're doing good.
-  // Next steps are to write the onchange handler for the input field and make a resubmit button (also maybe a cancel button?)
+    console.log(`handleEditCancel function triggered`);
+  }
 
   render() {
     return (
@@ -131,9 +125,14 @@ handleEditCancel(e){
             ) : (
               <li key={entry.todo}>
                 <form>
-                  <input placeholder={entry.todo} onChange={this.handleEditChange} onSubmit={this.handleEditSubmit}></input>
+                  <input
+                    placeholder={entry.todo}
+                    onSubmit={this.handleEditSubmit}
+                  ></input>
                   <button type="submit">Submit</button>
-                  <button type="cancel" onClick={this.handleEditCancel}>Cancel</button>
+                  <button type="cancel" onClick={this.handleEditCancel}>
+                    Cancel
+                  </button>
                 </form>
               </li>
             )
