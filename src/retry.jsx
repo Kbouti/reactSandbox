@@ -1,11 +1,17 @@
 import { React, Component } from "react";
 
+
+
+const exampleTodos = [{todo: "Replace air filters", editable: "false"}, {todo: "retake Slash phoros", editable: "false"}];
+
+
+
 export default class InputRetry extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      todos: [],
+      todos: exampleTodos,
       inputVal: "",
     };
 
