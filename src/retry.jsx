@@ -79,7 +79,6 @@ export default class InputRetry extends Component {
     }));
   }
 
-
   handleEditSubmit(e) {
     e.preventDefault();
     console.log(`handleEditSubmit function triggered`);
@@ -117,18 +116,14 @@ export default class InputRetry extends Component {
                 >
                   Delete
                 </button>
-
                 <button onClick={this.handleEditClick} className="editButton">
                   Edit
                 </button>
               </li>
             ) : (
               <li key={entry.todo}>
-                <form>
-                  <input
-                    placeholder={entry.todo}
-                    onSubmit={this.handleEditSubmit}
-                  ></input>
+                <form onSubmit={this.handleEditSubmit}>
+                  <input placeholder={entry.todo}></input>
                   <button type="submit">Submit</button>
                   <button type="cancel" onClick={this.handleEditCancel}>
                     Cancel
