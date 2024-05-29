@@ -1,45 +1,17 @@
 import { useState, useEffect } from "react";
 import React from "react";
 
-const FunctionalInput = ({ name }) => {
-  const [todos, setTodos] = useState([
-    "Just some ma'fuckin toDo's. ",
-    "Even more shit to do",
-  ]);
-  const [inputVal, setInputVal] = useState("");
 
-  const handleInputChange = (e) => {
-    setInputVal(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setTodos((todo) => [...todo, inputVal]);
-    setInputVal("");
-  };
-
-  return (
-    <section>
-      <h3>{name}</h3>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="task-entry">Enter a task:</label>
-        <input
-          type="text"
-          name="task-entry"
-          value={inputVal}
-          onChange={handleInputChange}
-        />
-        <button type="submit">Submit</button>
-      </form>
-      <h4>All the tasks!</h4>
-      <ul>
-        {todos.map((todo) => (
-          <li key={todo}>{todo}</li>
-        ))}
-      </ul>
-    </section>
-  );
-};
+import { createContext } from "react";
 
 
-export default FunctionalInput
+const ShopContext = createContext({
+  products: [], cartItems: [], addToCart: () =>{},
+})
+
+
+const ContextPractice = () => {
+  return <h1>Context Practice</h1>
+}
+
+export default ContextPractice;
