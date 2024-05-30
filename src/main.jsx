@@ -20,3 +20,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 // Read about calling apis in react 5/19
 
 // Completed first reducer exercise in React training. 5/30
+// Completed next exercise in React training 5/30
