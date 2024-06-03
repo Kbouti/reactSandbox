@@ -23,3 +23,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 // Completed next exercise in React training 5/30
 // Completed Third exercise for react reducer
 // Work on final reducer problem 6/1 
+// Completed React chapter
