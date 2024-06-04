@@ -25,3 +25,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 // Work on final reducer problem 6/1 
 // Completed React chapter
 // Begin reding on Node 6/3
+// Finish reading intro to node section 6/4
